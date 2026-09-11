@@ -17,6 +17,7 @@
 
 The toolbox is structured into modular machine learning suites designed to handle wafer acceptance test (WAT) metrics, circuit probe (CP) parameters, and inline process metrology:
 
+```text
 [ Wafer / WAT / CP Dataset (.xlsx, .csv) ]
                                           |
                                           v
@@ -43,66 +44,3 @@ v
 |
 v
 [ Interactive Dashboard ]
-
----
-
-## 📦 Module 1: XGBoost & SHAP Yield Diagnostics (Active)
-
-The **XGBoost Yield Classifier** analyzes multi-dimensional wafer fabrication parameters to predict functional yield failure (`OK` vs `NG`) and leverages **SHAP (SHapley Additive exPlanations)** to pinpoint exact physical process root causes.
-
-### 🌟 Key Performance Metrics
-* **Dataset Volume**: 3,000 samples (28nm FEOL WAT/CP model)
-* **Optimization Method**: Automated Scikit-Learn `GridSearchCV`
-* **Test ROC-AUC**: `0.9861` (Exceptional discrimination capability)
-* **Test Accuracy**: `93.67%`
-* **Top Defect Driver Identified**: `vt_p` (PMOS Threshold Voltage, Mean |SHAP| = `1.8618`)
-
----
-
-## 🖼️ User Interface & Diagnostic Dashboard
-
-The system provides fully automated, real-time diagnostic reporting supported in both **English** and **Traditional Chinese (i18n)**.
-
-### 1. English Mode Showcase
-| Diagnostic Dashboard & Metrics | SHAP Anomaly Parameters |
-| :---: | :---: |
-| ![English Dashboard](./Screenshot%202026-09-11%20211447.png) | ![SHAP Parameters](./Screenshot%202026-09-11%20211513.png) |
-
-#### Automated AI Diagnostic Summary (English)
-![Gemini English Report Part 1](./Screenshot%202026-09-11%20211525.png)
-![Gemini English Report Part 2](./Screenshot%202026-09-11%20211543.png)
-
-> **Sample LLM Output Excerpt:**
-> *"SHAP feature attributions clearly identify **`vt_p` (PMOS Threshold Voltage)** as the primary root cause of yield loss, displaying a dominant Mean |SHAP| value of **1.8618**—more than double the secondary driver, **`vt_n` (0.8062)**. Physical process deviations point to PMOS Channel/Halo Implant Drift and High-k Metal Gate (HKMG) thickness non-uniformity."*
-
----
-
-### 2. Traditional Chinese Mode Showcase (繁體中文)
-| 繁中良率診斷 Dashboard | Top 5 SHAP 關鍵異常參數 |
-| :---: | :---: |
-| ![ZH Dashboard](./Screenshot%202026-09-11%20211808.png) | ![ZH SHAP](./Screenshot%202026-09-11%20211819.png) |
-
-#### Gemini AI 良率診斷報告 (繁體中文)
-![Gemini Chinese Report](./Screenshot%202026-09-11%20211828.png)
-
----
-
-## 🛣️ Future Roadmap & Upcoming ML Tools
-
-The Pro Tic Tac platform is continuously expanding to include more statistical and machine learning tools for fab yield enhancement:
-
-- [x] **XGBoost & SHAP Automated Diagnostics** *(Released & Active)*
-- [ ] **SVM Classifier (Support Vector Machines)** *(Module 2 - Coming Soon)*
-- [ ] **Random Forest & KNN Classifiers** *(Module 3 - Coming Soon)*
-- [ ] **Statistical Process Control (SPC) & Trend Plotter** *(Module 4 - Coming Soon)*
-- [ ] **Wafer Map Heatmap Generator** *(Module 5 - Planned)*
-
----
-
-## 🔒 Security & Privacy Notice
-* All dataset processing on **protictac.com** is non-persistent and memory-isolated.
-* Sensitive semiconductor process parameter headers are anonymized and processed with strict zero-leak protocols.
-
----
-
-© 2026 [Pro Tic Tac Platform](https://protictac.com). Built by Bruce Chen.
