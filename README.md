@@ -45,4 +45,46 @@ v
 v
 [ Interactive Dashboard ]
 
-📦 Module 1: XGBoost & SHAP Yield Diagnostics (Active)The XGBoost Yield Classifier analyzes multi-dimensional wafer fabrication parameters to predict functional yield failure (OK vs NG) and leverages SHAP (SHapley Additive exPlanations) to pinpoint exact physical process root causes.🌟 Key Performance MetricsDataset Volume: 3,000 samples (28nm FEOL WAT/CP model)Optimization Method: Automated Scikit-Learn GridSearchCVTest ROC-AUC: 0.9861 (Exceptional discrimination capability)Test Accuracy: 93.67%Top Defect Driver Identified: vt_p (PMOS Threshold Voltage, Mean |SHAP| = 1.8618)🖼️ User Interface & Diagnostic DashboardThe system provides fully automated, real-time diagnostic reporting supported in both English and Traditional Chinese (i18n).1. English Mode ShowcaseDiagnostic Dashboard & MetricsSHAP Anomaly ParametersAutomated AI Diagnostic Summary (English)Sample LLM Output Excerpt:"SHAP feature attributions clearly identify vt_p (PMOS Threshold Voltage) as the primary root cause of yield loss, displaying a dominant Mean |SHAP| value of 1.8618—more than double the secondary driver, vt_n (0.8062). Physical process deviations point to PMOS Channel/Halo Implant Drift and High-k Metal Gate (HKMG) thickness non-uniformity."2. Traditional Chinese Mode Showcase (繁體中文)繁中良率診斷 DashboardTop 5 SHAP 關鍵異常參數Gemini AI 良率診斷報告 (繁體中文)🛣️ Future Roadmap & Upcoming ML ToolsThe Pro Tic Tac platform is continuously expanding to include more statistical and machine learning tools for fab yield enhancement:[x] XGBoost & SHAP Automated Diagnostics (Released & Active)[ ] SVM Classifier (Support Vector Machines) (Module 2 - Coming Soon)[ ] Random Forest & KNN Classifiers (Module 3 - Coming Soon)[ ] Statistical Process Control (SPC) & Trend Plotter (Module 4 - Coming Soon)[ ] Wafer Map Heatmap Generator (Module 5 - Planned)🔒 Security & Privacy NoticeAll dataset processing on protictac.com is non-persistent and memory-isolated.Sensitive semiconductor process parameter headers are anonymized and processed with strict zero-leak protocols.© 2026 Pro Tic Tac Platform. Built by Bruce Chen.
+📦 Module 1: XGBoost & SHAP Yield Diagnostics (Active)
+The XGBoost Yield Classifier analyzes multi-dimensional wafer fabrication parameters to predict functional yield failure (OK vs NG) and leverages SHAP (SHapley Additive exPlanations) to pinpoint exact physical process root causes.
+
+🌟 Key Performance Metrics
+Dataset Volume: 3,000 samples (28nm FEOL WAT/CP model)
+
+Optimization Method: Automated Scikit-Learn GridSearchCV
+
+Test ROC-AUC: 0.9861 (Exceptional discrimination capability)
+
+Test Accuracy: 93.67%
+
+Top Defect Driver Identified: vt_p (PMOS Threshold Voltage, Mean |SHAP| = 1.8618)
+
+🖼️ User Interface & Diagnostic Dashboard
+The system provides fully automated, real-time diagnostic reporting supported in both English and Traditional Chinese (i18n).
+
+1. English Mode ShowcaseDiagnostic Dashboard & MetricsSHAP Anomaly Parameters
+Automated AI Diagnostic Summary (English)
+Sample LLM Output Excerpt:
+"SHAP feature attributions clearly identify vt_p (PMOS Threshold Voltage) as the primary root cause of yield loss, displaying a dominant Mean |SHAP| value of 1.8618—more than double the secondary driver, vt_n (0.8062). Physical process deviations point to PMOS Channel/Halo Implant Drift and High-k Metal Gate (HKMG) thickness non-uniformity."
+
+2. Traditional Chinese Mode Showcase (繁體中文)繁中良率診斷 DashboardTop 5 SHAP 關鍵異常參數
+Gemini AI 良率診斷報告 (繁體中文)
+🛣️ Future Roadmap & Upcoming ML Tools
+The Pro Tic Tac platform is continuously expanding to include more statistical and machine learning tools for fab yield enhancement:
+
+[x] XGBoost & SHAP Automated Diagnostics (Released & Active)
+
+[ ] SVM Classifier (Support Vector Machines) (Module 2 - Coming Soon)
+
+[ ] Random Forest & KNN Classifiers (Module 3 - Coming Soon)
+
+[ ] Statistical Process Control (SPC) & Trend Plotter (Module 4 - Coming Soon)
+
+[ ] Wafer Map Heatmap Generator (Module 5 - Planned)
+
+🔒 Security & Privacy Notice
+All dataset processing on protictac.com is non-persistent and memory-isolated.
+
+Sensitive semiconductor process parameter headers are anonymized and processed with strict zero-leak protocols.
+
+© 2026 Pro Tic Tac Platform. Built by Bruce Chen.
