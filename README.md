@@ -2,7 +2,7 @@
 
 [![Platform](https://img.shields.io/badge/Platform-Pro_Tic_Tac-06b6d4?style=for-the-badge)](https://protictac.com)
 [![Framework](https://img.shields.io/badge/Framework-Laravel_11-ff2d20?style=for-the-badge&logo=laravel)](https://laravel.com)
-[![Engine](https://img.shields.io/badge/ML_Engine-XGBoost_%7C_SVM_%7C_KNN-38bdf8?style=for-the-badge&logo=python)](https://github.com/scikit-learn/scikit-learn)
+[![Engine](https://img.shields.io/badge/ML_Engine-XGBoost_%7C_SVM_%7C_KNN_%7C_DecisionTree-38bdf8?style=for-the-badge&logo=python)](https://github.com/scikit-learn/scikit-learn)
 [![LLM Agent](https://img.shields.io/badge/AI_Agent-Gemini_3.6_Flash-8e44ad?style=for-the-badge&logo=google)](https://ai.google.dev)
 [![Status](https://img.shields.io/badge/Status-Live-emerald?style=for-the-badge)](https://protictac.com/yield/upload)
 
@@ -30,16 +30,17 @@ The toolbox is structured into modular machine learning suites designed to handl
                           |    Python 3.12 ML Subprocess  |
                           +-------------------------------+
                                           |
-           +------------------------------+------------------------------+
-           |                              |                              |
-           v                              v                              v
-[ Module 1: XGBoost ]          [ Module 2: SVM Classifier ]    [ Module 3: KNN Classifier ]
-Yield Anomaly & SHAP           Linear Hyperplane Weights       Permutation Importance
-           |                              |                              |
-           +------------------------------+------------------------------+
+    +-------------------+-----------------+-------------------+-------------------+
+    |                   |                                     |                   |
+    v                   v                                     v                   v
+[ Module 1 ]       [ Module 2 ]                          [ Module 3 ]        [ Module 4 ]
+  XGBoost              SVM                                   KNN            Decision Tree
+Yield & SHAP    Linear Hyperplane                      Permutation Impact   Rules & TreeSHAP
+    |                   |                                     |                   |
+    +-------------------+-----------------+-------------------+-------------------+
                                           |
                                           v
-                              [ Gemini 3.6 Flash Agent ]
+                              [ Gemini Agent ]
                                           |
                                           v
                               [ Interactive Dashboard ]
@@ -47,77 +48,57 @@ Yield Anomaly & SHAP           Linear Hyperplane Weights       Permutation Impor
 
 📦 Module 1: XGBoost & SHAP Yield Diagnostics (Active)
 The XGBoost Yield Classifier analyzes multi-dimensional wafer fabrication parameters to predict functional yield failure (OK vs NG) and leverages SHAP (SHapley Additive exPlanations) to pinpoint exact physical process root causes.
-
 🌟 Key Performance Metrics
 Dataset Volume: 3,000 samples (28nm FEOL WAT/CP model)
-
 Optimization Method: Automated Scikit-Learn GridSearchCV
-
 Test ROC-AUC: 0.9861 (Exceptional discrimination capability)
-
 Test Accuracy: 93.67%
-
 Top Defect Driver Identified: vt_p (PMOS Threshold Voltage, Mean |SHAP| = 1.8618)
+
 
 📦 Module 2: SVM Classifier Yield Diagnostics (Active)
 The Support Vector Machine (SVM) Classifier utilizes standardized feature scaling (StandardScaler) and linear margin hyperplanes to determine clear-cut decision boundaries between functional passing dies and parametric yield anomalies.
-
 🌟 Key Performance Metrics
 Dataset Volume: 3,000 samples (Hold-out test verification set)
-
 Optimization Pipeline: Scikit-Learn Pipeline + GridSearchCV (C=1, kernel='linear')
-
 Test ROC-AUC: 0.9895 (Exceptional separation confidence)
-
 Test Accuracy: 93.17%
-
 Top Hyperplane Weight: vt_p (Feature Weight = 3.6483, ~3.7x higher impact than vt_n)
+
 
 📦 Module 3: KNN Classifier Yield Diagnostics (Active - Released 2026.09)
 The K-Nearest Neighbors (KNN) Classifier employs StandardScaler feature normalization paired with distance-weighted local space evaluation to partition parametric yield clusters and isolate anomaly boundaries in high-dimensional feature spaces.
-
 🌟 Key Performance Metrics
 Dataset Volume: 3,000 samples (28nm FEOL verification set)
-
 Optimization Pipeline: Scikit-Learn Pipeline + GridSearchCV (n_neighbors=11, metric='manhattan', weights='distance')
-
 Test ROC-AUC: 0.9654 (High statistical trustability and sharp spatial boundary)
-
 Test Accuracy: 92.83%
-
 Feature Importance Evaluation: Permutation Importance (scoring='roc_auc')
-
 Top Attributed Driver: vt_n (ROC-AUC Impact = 0.0978) and vt_p (ROC-AUC Impact = 0.0971), confirming threshold voltage instability as the primary failure root cause.
 
-🖼️ User Interface & Diagnostic Showcase 1. KNN English Mode Showcase
-English KNN Dashboard & SelectionFeature Permutation Importance Table
+📦 Module 4: Decision Tree Classifier Yield Diagnostics (Active - Released 2026.09)
+The Decision Tree Classifier provides intuitive rule-based split boundaries for fab process engineers. It uses GridSearchCV pruning (max_depth=3, criterion='entropy') to prevent overfitting while leveraging TreeSHAP (shap.TreeExplainer) for rigorous feature attribution.
+🌟 Key Performance Metrics
+Dataset Volume: 3,000 samples (28nm FEOL WAT/CP verification set)
+Hyperparameter Tuning: Scikit-Learn GridSearchCV (max_depth=3, criterion='entropy', min_samples_leaf=4)
+Test ROC-AUC: 0.9745 (Clear, robust decision boundary)
+Test Accuracy: 95.67%
+SHAP Feature Importance: TreeExplainer (Mean |SHAP|)
+Top Defect Driver Identified: vt_p (PMOS Threshold Voltage, Mean |SHAP| = 0.2062 — over 18x higher attribution than secondary parameters)
 
-Automated AI Diagnostic Summary (English Excerpt)
-Sample LLM Output Excerpt:
-
-"Permutation importance confirms that yield loss is almost exclusively driven by threshold voltage instability across both NMOS and PMOS devices: vt_n (ROC-AUC Impact: 0.0978) and vt_p (ROC-AUC Impact: 0.0971). Physical process deviations point to Front-End-of-Line (FEOL) common-mode process excursions, specifically Gate Dielectric Thickness / EOT Variance and Channel/Halo Implant Drift."
-
-2. KNN Traditional Chinese Mode Showcase (繁體中文)
-繁中良率診斷 UI 選單與 DashboardTop 5 KNN 關鍵影響參數與 AI 報告
 
 🛣️ Future Roadmap & Upcoming ML Tools
 The Pro Tic Tac platform is continuously expanding to include more statistical and machine learning tools for fab yield enhancement:
 
 [x] Module 1: XGBoost & SHAP Automated Diagnostics (Released & Active)
-
 [x] Module 2: Support Vector Machine (SVM) Classifier (Released & Active)
-
 [x] Module 3: K-Nearest Neighbors (KNN) Classifier (Released & Active)
-
-[ ] Module 4: Decision Trees & Random Forest Classifiers (Coming Soon)
-
-[ ] Module 5: Statistical Process Control (SPC) & Trend Plotter (Coming Soon)
-
-[ ] Module 6: Wafer Map Heatmap Generator (Planned)
+[x] Module 4: Decision Tree Classifier & TreeSHAP (Released & Active)
+[ ] Module 5: Random Forest Ensemble Classifier (Coming Soon)
+[ ] Module 6: Statistical Process Control (SPC) & Trend Plotter (Planned)
+[ ] Module 7: Wafer Map Heatmap Generator (Planned)
 
 🔒 Security & Privacy Notice
 All dataset processing on protictac.com is non-persistent and memory-isolated.
-
 Sensitive semiconductor process parameter headers are anonymized and processed with strict zero-leak protocols.
-
 © 2026 Pro Tic Tac Platform. Built by Bruce Chen.
