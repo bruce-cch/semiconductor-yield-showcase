@@ -2,7 +2,7 @@
 
 [![Platform](https://img.shields.io/badge/Platform-Pro_Tic_Tac-06b6d4?style=for-the-badge)](https://protictac.com)
 [![Framework](https://img.shields.io/badge/Framework-Laravel_11-ff2d20?style=for-the-badge&logo=laravel)](https://laravel.com)
-[![Engine](https://img.shields.io/badge/ML_Engine-XGBoost_%7C_SVM_%7C_KNN_%7C_DecisionTree-38bdf8?style=for-the-badge&logo=python)](https://github.com/scikit-learn/scikit-learn)
+[![Engine](https://img.shields.io/badge/ML_Engine-XGBoost_%7C_SVM_%7C_KNN_%7C_DecisionTree_%7C_RandomForest-38bdf8?style=for-the-badge&logo=python)](https://github.com/scikit-learn/scikit-learn)
 [![LLM Agent](https://img.shields.io/badge/AI_Agent-Gemini_3.6_Flash-8e44ad?style=for-the-badge&logo=google)](https://ai.google.dev)
 [![Status](https://img.shields.io/badge/Status-Live-emerald?style=for-the-badge)](https://protictac.com/yield/upload)
 
@@ -30,17 +30,18 @@ The toolbox is structured into modular machine learning suites designed to handl
                           |    Python 3.12 ML Subprocess  |
                           +-------------------------------+
                                           |
-    +-------------------+-----------------+-------------------+-------------------+
-    |                   |                                     |                   |
-    v                   v                                     v                   v
-[ Module 1 ]       [ Module 2 ]                          [ Module 3 ]        [ Module 4 ]
-  XGBoost              SVM                                   KNN            Decision Tree
-Yield & SHAP    Linear Hyperplane                      Permutation Impact   Rules & TreeSHAP
-    |                   |                                     |                   |
-    +-------------------+-----------------+-------------------+-------------------+
+    +-----------+------------+------------+------------+------------+
+    |           |            |            |            |            |
+    v           v            v            v            v            v
+[Mod 1]      [Mod 2]      [Mod 3]      [Mod 4]      [Mod 5]      [Mod 6]
+XGBoost        SVM          KNN       Dec. Tree    Rand. Forest   SPC/Trend
+Yield       Hyperplane   Distance      Rules &      Ensemble     Control
+ & SHAP       Weights    Boundary     TreeSHAP    & TreeSHAP      Charts
+    |           |            |            |            |            |
+    +-----------+------------+------------+------------+------------+
                                           |
                                           v
-                              [ Gemini Agent ]
+                              [ Gemini    Flash Agent ]
                                           |
                                           v
                               [ Interactive Dashboard ]
@@ -86,6 +87,12 @@ Test Accuracy: 95.67%
 SHAP Feature Importance: TreeExplainer (Mean |SHAP|)
 Top Defect Driver Identified: vt_p (PMOS Threshold Voltage, Mean |SHAP| = 0.2062 — over 18x higher attribution than secondary parameters)
 
+📦 Module 5: Random Forest Ensemble Classifier Yield Diagnostics (Active - Released 2026.09)
+The Random Forest Classifier utilizes an ensemble of decision trees combined with Scikit-Learn GridSearchCV (n_estimators=200, max_depth=6, class_weight='balanced') to minimize variance and boost classification stability across complex, imbalanced WAT datasets. Feature attribution is calculated via TreeSHAP.
+Hyperparameter Tuning: Scikit-Learn GridSearchCV (n_estimators=200, max_depth=6, class_weight='balanced')
+Test ROC-AUC: 0.9890 | Test Accuracy: 94.67%
+SHAP Feature Importance: TreeExplainer (Top Driver: vt_p, Mean |SHAP| = 0.2138; vt_n, Mean |SHAP| = 0.1835)
+
 
 🛣️ Future Roadmap & Upcoming ML Tools
 The Pro Tic Tac platform is continuously expanding to include more statistical and machine learning tools for fab yield enhancement:
@@ -94,11 +101,11 @@ The Pro Tic Tac platform is continuously expanding to include more statistical a
 [x] Module 2: Support Vector Machine (SVM) Classifier (Released & Active)
 [x] Module 3: K-Nearest Neighbors (KNN) Classifier (Released & Active)
 [x] Module 4: Decision Tree Classifier & TreeSHAP (Released & Active)
-[ ] Module 5: Random Forest Ensemble Classifier (Coming Soon)
+[x] Module 5: Random Forest Ensemble Classifier (Released & Active)
 [ ] Module 6: Statistical Process Control (SPC) & Trend Plotter (Planned)
 [ ] Module 7: Wafer Map Heatmap Generator (Planned)
 
 🔒 Security & Privacy Notice
 All dataset processing on protictac.com is non-persistent and memory-isolated.
 Sensitive semiconductor process parameter headers are anonymized and processed with strict zero-leak protocols.
-© 2026 Pro Tic Tac Platform. Built by Bruce Chen.
+© 2026 Pro Tic Tac Platform.
